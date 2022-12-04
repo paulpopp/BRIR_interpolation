@@ -19,6 +19,8 @@
 % LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 % OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 % SOFTWARE.
+%
+% Code Modifications: Paul Popp; TU Ilmenau 2022
 
 function synthesizedBRIR = interpolateBRIR_1D(sourceBRIR_1, sourcePos_1, sourceBRIR_2, sourcePos_2, newPos, mixingTime, fs, plots)
     % ---------------------------------------------------- %
