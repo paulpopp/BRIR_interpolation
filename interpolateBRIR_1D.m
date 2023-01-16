@@ -48,8 +48,13 @@ function synthesizedBRIR = interpolateBRIR_1D(sourceBRIR_1, sourcePos_1, sourceB
                                     % all the intermediate vectors
     ovlp = 100;                     % overlapping samples for crossover between direct+Early and late reverb
     fc = 150;                       % cutoff frequency Hz
-    block_size = 500;               % block size for warping in samples, should be less than 600 samples
+    block_size = 600;               % block size for warping in samples, should be less than 600 samples
 
+    if length(sourceBRIR_1) < length(sourceBRIR_2)
+        sourceBRIR_1 = vertcat(sourceBRIR_1, zeros(length(sourceBRIR_2) - length(sourceBRIR_1), 2));
+    elseif length(sourceBRIR_1) > length(sourceBRIR_2)
+        sourceBRIR_2 = vertcat(sourceBRIR_2, zeros(length(sourceBRIR_1) - length(sourceBRIR_2), 2));
+    end
 
     for leftRight = 1:2
         h.h1.ir = double(sourceBRIR_1(:,leftRight))';
